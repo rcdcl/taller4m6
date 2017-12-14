@@ -27,43 +27,194 @@ public class MaquinaCafe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        bg_tipo_cafe = new javax.swing.ButtonGroup();
+        bg_tamano = new javax.swing.ButtonGroup();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        r = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        txtvalor = new javax.swing.JTextField();
+        txtvuelto = new javax.swing.JTextField();
+        btnpagar = new javax.swing.JButton();
+        cboefectivo = new javax.swing.JComboBox<>();
+        cbotipoleche = new javax.swing.JComboBox<>();
+        cboendulzante = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         maropt = new javax.swing.JMenu();
+        mnventa = new javax.swing.JMenuItem();
+        mnadmin = new javax.swing.JMenuItem();
         marsalir = new javax.swing.JMenuItem();
-        mproopt = new javax.swing.JMenu();
-        mproagr = new javax.swing.JMenuItem();
-        mproelim = new javax.swing.JMenuItem();
-        mprolist = new javax.swing.JMenuItem();
+        macerca = new javax.swing.JMenu();
+        macercaintegrantes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 260));
 
-        maropt.setText("Archivo");
+        bg_tipo_cafe.add(jRadioButton1);
+        jRadioButton1.setContentAreaFilled(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+
+        bg_tipo_cafe.add(r);
+        r.setContentAreaFilled(false);
+        r.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rActionPerformed(evt);
+            }
+        });
+        getContentPane().add(r, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+
+        bg_tipo_cafe.add(jRadioButton3);
+        jRadioButton3.setContentAreaFilled(false);
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+
+        bg_tipo_cafe.add(jRadioButton4);
+        jRadioButton4.setContentAreaFilled(false);
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+
+        bg_tamano.add(jRadioButton5);
+        jRadioButton5.setContentAreaFilled(false);
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+
+        bg_tamano.add(jRadioButton6);
+        jRadioButton6.setContentAreaFilled(false);
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
+
+        bg_tamano.add(jRadioButton7);
+        jRadioButton7.setContentAreaFilled(false);
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        txtvalor.setBackground(new java.awt.Color(255, 255, 255));
+        txtvalor.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(txtvalor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 110, 30));
+
+        txtvuelto.setBackground(new java.awt.Color(255, 255, 255));
+        txtvuelto.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(txtvuelto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 110, 30));
+
+        btnpagar.setBackground(new java.awt.Color(255, 255, 255));
+        btnpagar.setText("PAGAR");
+        btnpagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpagarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 110, 70));
+
+        cboefectivo.setBackground(new java.awt.Color(255, 255, 255));
+        cboefectivo.setEditable(true);
+        cboefectivo.setForeground(new java.awt.Color(255, 255, 255));
+        cboefectivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1000", "2000", "5000", "10000", "20000" }));
+        getContentPane().add(cboefectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 120, 30));
+
+        cbotipoleche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbotipoleche, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, -1));
+
+        cboendulzante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cboendulzante, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cliente.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        maropt.setText("Menu");
+
+        mnventa.setText("Venta");
+        mnventa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnventaActionPerformed(evt);
+            }
+        });
+        maropt.add(mnventa);
+
+        mnadmin.setText("Admin");
+        maropt.add(mnadmin);
 
         marsalir.setText("Salir");
         maropt.add(marsalir);
 
         jMenuBar1.add(maropt);
 
-        mproopt.setText("Procesos");
+        macerca.setText("Acerca de");
 
-        mproagr.setText("Agregar");
-        mproopt.add(mproagr);
+        macercaintegrantes.setText("Integrantes");
+        macerca.add(macercaintegrantes);
 
-        mproelim.setText("Eliminar");
-        mproopt.add(mproelim);
-
-        mprolist.setText("Listar");
-        mproopt.add(mprolist);
-
-        jMenuBar1.add(mproopt);
+        jMenuBar1.add(macerca);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton7ActionPerformed
+
+    private void btnpagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnpagarActionPerformed
+
+    private void mnventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnventaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,13 +259,28 @@ public class MaquinaCafe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.ButtonGroup bg_tamano;
+    public javax.swing.ButtonGroup bg_tipo_cafe;
+    public javax.swing.JButton btnpagar;
+    public javax.swing.JComboBox<String> cboefectivo;
+    public javax.swing.JComboBox<String> cboendulzante;
+    public javax.swing.JComboBox<String> cbotipoleche;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton3;
+    public javax.swing.JRadioButton jRadioButton4;
+    public javax.swing.JRadioButton jRadioButton5;
+    public javax.swing.JRadioButton jRadioButton6;
+    public javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JMenu macerca;
+    public javax.swing.JMenuItem macercaintegrantes;
     public javax.swing.JMenu maropt;
     public javax.swing.JMenuItem marsalir;
-    public javax.swing.JMenuItem mproagr;
-    public javax.swing.JMenuItem mproelim;
-    public javax.swing.JMenuItem mprolist;
-    public javax.swing.JMenu mproopt;
+    private javax.swing.JMenuItem mnadmin;
+    public javax.swing.JMenuItem mnventa;
+    public javax.swing.JRadioButton r;
+    public javax.swing.JTextField txtvalor;
+    public javax.swing.JTextField txtvuelto;
     // End of variables declaration//GEN-END:variables
 }
