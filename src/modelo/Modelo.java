@@ -255,8 +255,7 @@ public class Modelo extends Conexion {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        return tablemodel;
-       
+        return tablemodel;  
     }
 
     public DefaultTableModel reporteVentas() {
