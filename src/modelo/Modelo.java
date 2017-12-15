@@ -34,14 +34,15 @@ public class Modelo extends Conexion {
             registros = res1.getInt("total");
             res1.close();
             pstm1.close();
+            getConexion().close();
             //
             PreparedStatement pstm2 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
             ResultSet res2 = pstm2.executeQuery();
             res2.next();
-            
             registros = res2.getInt("total");
             res2.close();
             pstm2.close();
+            getConexion().close();
             //
             PreparedStatement pstm3 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
             ResultSet res3 = pstm3.executeQuery();
@@ -49,6 +50,7 @@ public class Modelo extends Conexion {
             registros = res3.getInt("total");
             res3.close();
             pstm3.close();
+            getConexion().close();
             //
             PreparedStatement pstm4 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
             ResultSet res4 = pstm4.executeQuery();
@@ -56,6 +58,7 @@ public class Modelo extends Conexion {
             registros = res4.getInt("total");
             res4.close();
             pstm4.close();
+            getConexion().close();
             //
             PreparedStatement pstm5 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
             ResultSet res5 = pstm5.executeQuery();
@@ -63,6 +66,7 @@ public class Modelo extends Conexion {
             registros = res5.getInt("total");
             res5.close();
             pstm5.close();
+            getConexion().close();
             //
             PreparedStatement pstm6 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
             ResultSet res6 = pstm6.executeQuery();
@@ -70,6 +74,7 @@ public class Modelo extends Conexion {
             registros = res6.getInt("total");
             res6.close();
             pstm6.close();
+            getConexion().close();
             //
             PreparedStatement pstm7 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
             ResultSet res7 = pstm7.executeQuery();
@@ -77,6 +82,7 @@ public class Modelo extends Conexion {
             registros = res7.getInt("total");
             res7.close();
             pstm7.close();
+            getConexion().close();
             //
             PreparedStatement pstm8 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
             ResultSet res8 = pstm8.executeQuery();
@@ -84,6 +90,7 @@ public class Modelo extends Conexion {
             registros = res8.getInt("total");
             res8.close();
             pstm8.close();
+            getConexion().close();
             //
             PreparedStatement pstm9 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
             ResultSet res9 = pstm9.executeQuery();
@@ -91,6 +98,7 @@ public class Modelo extends Conexion {
             registros = res9.getInt("total");
             res9.close();
             pstm9.close();
+            getConexion().close();
             //
             PreparedStatement pstm10 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
             ResultSet res10 = pstm10.executeQuery();
@@ -98,6 +106,7 @@ public class Modelo extends Conexion {
             registros = res10.getInt("total");
             res10.close();
             pstm10.close();
+            getConexion().close();
             //
             PreparedStatement pstm11 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
             ResultSet res11 = pstm11.executeQuery();
@@ -106,6 +115,7 @@ public class Modelo extends Conexion {
             res11.close();
             pstm11.close();
             getConexion().close();
+            
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -270,6 +280,17 @@ public class Modelo extends Conexion {
             res9.close();
             res10.close();
             res11.close();
+            pstm1.close();
+            pstm2.close();
+            pstm3.close();
+            pstm4.close();
+            pstm5.close();
+            pstm6.close();
+            pstm7.close();
+            pstm8.close();
+            pstm9.close();
+            pstm10.close();
+            pstm11.close();
             tablemodel.setDataVector(data, columNames);
             getConexion().close();
         } catch (SQLException e) {
