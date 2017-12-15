@@ -142,9 +142,6 @@ public class Controlador implements ActionListener {
         // Escuchamos el radio button cortado
         this.vistaInicial.optcortado.setActionCommand("optcortado");
         this.vistaInicial.optcortado.addActionListener(this);
-        // Escuchamos botón pagar vista menú
-        this.vistaInicial.btnpagar.setActionCommand("btnpagar");
-        this.vistaInicial.btnpagar.addActionListener(this);
         // Escuchamos botón volver vista acerca de
         this.vistaAcerca.btnvolver.setActionCommand("btnvolver");
         this.vistaAcerca.btnvolver.addActionListener(this);
@@ -154,9 +151,7 @@ public class Controlador implements ActionListener {
         // Escuchamos botón cancelar preparación vista MaquinaCafe
         this.vistaInicial.btncancelar.setActionCommand("btncancelar");
         this.vistaInicial.btncancelar.addActionListener(this);
-        //Escuchamos textfiels de pago vista MaquinaCafe
-        //this.vistaInicial.txtpago.setActionCommand("txtpago");
-        //this.vistaInicial.txtpago.addActionListener(this);
+
         
 
     }
