@@ -99,7 +99,8 @@ public class Modelo extends Conexion {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        Object[][] data = new String[registros][11];
+        //Object[][] data = new String[registros][11];
+            Object[][] data = new String[2][11];
         try {
             PreparedStatement pstm1 = this.getConexion().prepareStatement(
             "select stock_c from cafe where id_coffe = 1;");    // Stock Cafe
@@ -137,42 +138,116 @@ public class Modelo extends Conexion {
             ResultSet res11 = pstm11.executeQuery();
 
             int i = 0;
+            int campo1=6, campo2=6, campo3=6, campo4=6, campo5=6, campo6=6, campo7=6, campo8=6, campo9=6, campo10=6, campo11=6; 
             while (res1.next()) {
 
-                data[i][0] = res1.getString("stock_c");               
+                data[i][0] = res1.getString("stock_c");
+                
+                campo1= Integer.parseInt(String.valueOf(data[i][0]));
+                if (campo1 <=5){
+                    data[1][0] = "S. BAJO";
+                } else {
+                    data[1][0] = "S. OK";
+                }
             }
             while (res2.next()) {
-                data[i][1] = res2.getString("endulzante.stock_end");                               
+                data[i][1] = res2.getString("endulzante.stock_end");
+                campo2= Integer.parseInt(String.valueOf(data[i][1]));
+                if (campo2 <=5){
+                    data[1][1] = "S. BAJO";
+                } else {
+                    data[1][1] = "S. OK";
+                }
             }
             while (res3.next()) {               
-                data[i][2] = res3.getString("endulzante.stock_end");              
+                data[i][2] = res3.getString("endulzante.stock_end");
+                campo3= Integer.parseInt(String.valueOf(data[i][2]));
+                if (campo3 <=5){
+                    data[1][2] = "S. BAJO";
+                } else {
+                    data[1][2] = "S. OK";
+                }
             }
             while (res4.next()) {               
-                data[i][3] = res4.getString("endulzante.stock_end");             
+                data[i][3] = res4.getString("endulzante.stock_end");
+                campo4= Integer.parseInt(String.valueOf(data[i][3]));
+                if (campo4 <=5){
+                    data[1][3] = "S. BAJO";
+                } else {
+                    data[1][3] = "S. OK";
+                }
             }
             while (res5.next()) {               
                 data[i][4] = res5.getString("leche.stock_leche");
+                campo5= Integer.parseInt(String.valueOf(data[i][4]));
+                if (campo5 <=5){
+                    data[1][4] = "S. BAJO";
+                } else {
+                    data[1][4] = "S. OK";
+                }
             }
             while (res6.next()) {               
-                data[i][5] = res6.getString("leche.stock_leche");               
+                data[i][5] = res6.getString("leche.stock_leche");
+                campo6= Integer.parseInt(String.valueOf(data[i][5]));
+                if (campo6 <=5){
+                    data[1][5] = "S. BAJO";
+                } else {
+                    data[1][5] = "S. OK";
+                }
             }
             while (res7.next()) {               
-                data[i][6] = res7.getString("leche.stock_leche");              
+                data[i][6] = res7.getString("leche.stock_leche");
+                campo7= Integer.parseInt(String.valueOf(data[i][6]));
+                if (campo7 <=5){
+                    data[1][6] = "S. BAJO";
+                } else {
+                    data[1][6] = "S. OK";
+                }
             }
             while (res8.next()) {               
                 data[i][7] = res8.getString("leche.stock_leche");
+                campo8= Integer.parseInt(String.valueOf(data[i][7]));
+                if (campo8 <=5){
+                    data[1][7] = "S. BAJO";
+                } else {
+                    data[1][7] = "S. OK";
+                }
                
             }            
             while (res9.next()) {               
-                data[i][8] = res9.getString("vaso.stock_vaso");             
+                data[i][8] = res9.getString("vaso.stock_vaso");
+                campo9= Integer.parseInt(String.valueOf(data[i][8]));
+                if (campo9 <=5){
+                    data[1][8] = "S. BAJO";
+                } else {
+                    data[1][8] = "S. OK";
+                }
             }
             while (res10.next()) {               
-                data[i][9] = res10.getString("vaso.stock_vaso");              
+                data[i][9] = res10.getString("vaso.stock_vaso");
+                campo10= Integer.parseInt(String.valueOf(data[i][9]));
+                if (campo10 <=5){
+                    data[1][9] = "S. BAJO";
+                } else {
+                    data[1][9] = "S. OK";
+                }
             }
             while (res11.next()) {               
 
-                data[i][10] = res11.getString("vaso.stock_vaso");                
+                data[i][10] = res11.getString("vaso.stock_vaso");
+                campo11= Integer.parseInt(String.valueOf(data[i][10]));
+                if (campo11 <=5){
+                    data[1][10] = "S. BAJO";
+                } else {
+                    data[1][10] = "S. OK";
+                }                
             }
+            
+            if ((campo1 <=5)|| (campo2 <=5)|| (campo3 <=5)|| (campo4 <=5)|| (campo5 <=5)|| (campo6 <=5)|| (campo7 <=5)|| (campo8 <=5)|| (campo9 <=5)|| (campo10 <=5)|| (campo11 <=5)){
+            JOptionPane.showMessageDialog(null, "¡¡¡ALERTA!!! Stock de insumos crítico.\nRevise detalle en Menu=>Admin=>Reporte de Stock");
+            
+        }
+            
             res1.close(); res2.close();res3.close();res4.close();res5.close();res6.close();
             res7.close();res8.close();res9.close();res10.close();res11.close();
             tablemodel.setDataVector(data, columNames);            
@@ -199,7 +274,7 @@ public class Modelo extends Conexion {
         }
         Object[][] data = new String[registros][9];
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT venta.id_venta, tipo_cafe.nombre, cafe.cafe, endulzante.tipo_end, venta.ext_end, vaso.tipo_vaso, leche.tipo_leche, venta.descuento, venta.valor_venta FROM venta INNER JOIN tipo_cafe ON venta.id_cafe=tipo_cafe.id_cafe INNER JOIN cafe ON venta.id_coffe=cafe.id_coffe INNER JOIN endulzante ON venta.id_end=endulzante.id_end INNER JOIN leche ON venta.id_leche=leche.id_leche INNER JOIN vaso ON venta.id_vaso=vaso.id_vaso");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT venta.id_venta, tipo_cafe.nombre, cafe.cafe, endulzante.tipo_end, venta.ext_end, vaso.tipo_vaso, leche.tipo_leche, venta.descuento, venta.valor_venta FROM venta INNER JOIN tipo_cafe ON venta.id_cafe=tipo_cafe.id_cafe INNER JOIN cafe ON venta.id_coffe=cafe.id_coffe INNER JOIN endulzante ON venta.id_end=endulzante.id_end INNER JOIN leche ON venta.id_leche=leche.id_leche INNER JOIN vaso ON venta.id_vaso=vaso.id_vaso ORDER BY id_venta ASC");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
@@ -277,8 +352,16 @@ public class Modelo extends Conexion {
         
     }
 
-
+    public boolean alertaStock (){
+        
+        return false;
+    }
        
+    public boolean descontarStock(){
+        
+        
+        return false;
+    }
 
 
 }

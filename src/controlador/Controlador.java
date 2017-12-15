@@ -398,6 +398,7 @@ public class Controlador implements ActionListener {
                 
             case optgrande:
 
+                this.modeloDato.reporteStock();
                 this.vistaInicial.optamericano.setEnabled(true);
                 this.vistaInicial.optcapuccino.setEnabled(true);
                 this.vistaInicial.optcortado.setEnabled(true);
@@ -405,6 +406,7 @@ public class Controlador implements ActionListener {
                 break;
 
             case optmediano:
+                this.modeloDato.reporteStock();
                 this.vistaInicial.optamericano.setEnabled(true);
                 this.vistaInicial.optcapuccino.setEnabled(true);
                 this.vistaInicial.optcortado.setEnabled(true);
@@ -413,7 +415,7 @@ public class Controlador implements ActionListener {
                 break;
 
             case optchico:
-
+                this.modeloDato.reporteStock();
                 this.vistaInicial.optespresso.setEnabled(true);
 
                 break;
