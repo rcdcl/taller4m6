@@ -29,25 +29,26 @@ public class MaquinaCafe extends javax.swing.JFrame {
 
         bg_tipo_cafe = new javax.swing.ButtonGroup();
         bg_tamano = new javax.swing.ButtonGroup();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        r = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        optcortado = new javax.swing.JRadioButton();
+        optespresso = new javax.swing.JRadioButton();
+        optamericano = new javax.swing.JRadioButton();
+        optcapuccino = new javax.swing.JRadioButton();
+        optgrande = new javax.swing.JRadioButton();
+        optmediano = new javax.swing.JRadioButton();
+        optchico = new javax.swing.JRadioButton();
         txtvalor = new javax.swing.JTextField();
         txtvuelto = new javax.swing.JTextField();
         btnpagar = new javax.swing.JButton();
-        cboefectivo = new javax.swing.JComboBox<>();
         cbotipoleche = new javax.swing.JComboBox<>();
         cboendulzante = new javax.swing.JComboBox<>();
+        txtpago = new javax.swing.JTextField();
+        chkextradulce = new javax.swing.JCheckBox();
+        btncancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         maropt = new javax.swing.JMenu();
-        mnventa = new javax.swing.JMenuItem();
-        mnadmin = new javax.swing.JMenuItem();
-        marsalir = new javax.swing.JMenuItem();
+        mmenuadmin = new javax.swing.JMenuItem();
+        mmenusalir = new javax.swing.JMenuItem();
         macerca = new javax.swing.JMenu();
         macercaintegrantes = new javax.swing.JMenuItem();
 
@@ -55,79 +56,86 @@ public class MaquinaCafe extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bg_tipo_cafe.add(jRadioButton1);
-        jRadioButton1.setContentAreaFilled(false);
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        bg_tipo_cafe.add(optcortado);
+        optcortado.setContentAreaFilled(false);
+        optcortado.setEnabled(false);
+        optcortado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                optcortadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        getContentPane().add(optcortado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
 
-        bg_tipo_cafe.add(r);
-        r.setContentAreaFilled(false);
-        r.addActionListener(new java.awt.event.ActionListener() {
+        bg_tipo_cafe.add(optespresso);
+        optespresso.setContentAreaFilled(false);
+        optespresso.setEnabled(false);
+        optespresso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rActionPerformed(evt);
+                optespressoActionPerformed(evt);
             }
         });
-        getContentPane().add(r, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        getContentPane().add(optespresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
 
-        bg_tipo_cafe.add(jRadioButton3);
-        jRadioButton3.setContentAreaFilled(false);
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        bg_tipo_cafe.add(optamericano);
+        optamericano.setContentAreaFilled(false);
+        optamericano.setEnabled(false);
+        optamericano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                optamericanoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+        getContentPane().add(optamericano, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
-        bg_tipo_cafe.add(jRadioButton4);
-        jRadioButton4.setContentAreaFilled(false);
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        bg_tipo_cafe.add(optcapuccino);
+        optcapuccino.setContentAreaFilled(false);
+        optcapuccino.setEnabled(false);
+        optcapuccino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                optcapuccinoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+        getContentPane().add(optcapuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
-        bg_tamano.add(jRadioButton5);
-        jRadioButton5.setContentAreaFilled(false);
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        bg_tamano.add(optgrande);
+        optgrande.setContentAreaFilled(false);
+        optgrande.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                optgrandeActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        getContentPane().add(optgrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
-        bg_tamano.add(jRadioButton6);
-        jRadioButton6.setContentAreaFilled(false);
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        bg_tamano.add(optmediano);
+        optmediano.setContentAreaFilled(false);
+        optmediano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                optmedianoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
+        getContentPane().add(optmediano, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 20));
 
-        bg_tamano.add(jRadioButton7);
-        jRadioButton7.setContentAreaFilled(false);
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        bg_tamano.add(optchico);
+        optchico.setContentAreaFilled(false);
+        optchico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                optchicoActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        getContentPane().add(optchico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         txtvalor.setBackground(new java.awt.Color(255, 255, 255));
         txtvalor.setForeground(new java.awt.Color(0, 0, 0));
+        txtvalor.setEnabled(false);
         getContentPane().add(txtvalor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 110, 30));
 
         txtvuelto.setBackground(new java.awt.Color(255, 255, 255));
         txtvuelto.setForeground(new java.awt.Color(0, 0, 0));
+        txtvuelto.setEnabled(false);
         getContentPane().add(txtvuelto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 110, 30));
 
         btnpagar.setBackground(new java.awt.Color(255, 255, 255));
         btnpagar.setText("PAGAR");
+        btnpagar.setEnabled(false);
         btnpagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpagarActionPerformed(evt);
@@ -135,36 +143,34 @@ public class MaquinaCafe extends javax.swing.JFrame {
         });
         getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 110, 70));
 
-        cboefectivo.setBackground(new java.awt.Color(255, 255, 255));
-        cboefectivo.setEditable(true);
-        cboefectivo.setForeground(new java.awt.Color(255, 255, 255));
-        cboefectivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1000", "2000", "5000", "10000", "20000" }));
-        getContentPane().add(cboefectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 120, 30));
-
-        cbotipoleche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbotipoleche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Entera", "Descremada", "Soya", "Almendra" }));
+        cbotipoleche.setEnabled(false);
         getContentPane().add(cbotipoleche, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, -1));
 
-        cboendulzante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboendulzante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blanca", "Rubia", "Stevia", "Sin Endulzar" }));
+        cboendulzante.setEnabled(false);
         getContentPane().add(cboendulzante, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+
+        txtpago.setEnabled(false);
+        getContentPane().add(txtpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 100, 30));
+
+        chkextradulce.setText("Extra Dulce");
+        chkextradulce.setEnabled(false);
+        getContentPane().add(chkextradulce, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, -1, -1));
+
+        btncancelar.setText("Cancelar Preparacion");
+        getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cliente.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         maropt.setText("Menu");
 
-        mnventa.setText("Venta");
-        mnventa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnventaActionPerformed(evt);
-            }
-        });
-        maropt.add(mnventa);
+        mmenuadmin.setText("Admin");
+        maropt.add(mmenuadmin);
 
-        mnadmin.setText("Admin");
-        maropt.add(mnadmin);
-
-        marsalir.setText("Salir");
-        maropt.add(marsalir);
+        mmenusalir.setText("Salir");
+        maropt.add(mmenusalir);
 
         jMenuBar1.add(maropt);
 
@@ -180,41 +186,37 @@ public class MaquinaCafe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void optcortadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optcortadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_optcortadoActionPerformed
 
-    private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
+    private void optespressoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optespressoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rActionPerformed
+    }//GEN-LAST:event_optespressoActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void optamericanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optamericanoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_optamericanoActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void optcapuccinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optcapuccinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_optcapuccinoActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void optgrandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optgrandeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_optgrandeActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void optmedianoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optmedianoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_optmedianoActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void optchicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optchicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_optchicoActionPerformed
 
     private void btnpagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnpagarActionPerformed
-
-    private void mnventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnventaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnventaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,25 +263,26 @@ public class MaquinaCafe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup bg_tamano;
     public javax.swing.ButtonGroup bg_tipo_cafe;
+    public javax.swing.JButton btncancelar;
     public javax.swing.JButton btnpagar;
-    public javax.swing.JComboBox<String> cboefectivo;
     public javax.swing.JComboBox<String> cboendulzante;
     public javax.swing.JComboBox<String> cbotipoleche;
+    public javax.swing.JCheckBox chkextradulce;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
-    public javax.swing.JRadioButton jRadioButton1;
-    public javax.swing.JRadioButton jRadioButton3;
-    public javax.swing.JRadioButton jRadioButton4;
-    public javax.swing.JRadioButton jRadioButton5;
-    public javax.swing.JRadioButton jRadioButton6;
-    public javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JMenu macerca;
     public javax.swing.JMenuItem macercaintegrantes;
     public javax.swing.JMenu maropt;
-    public javax.swing.JMenuItem marsalir;
-    private javax.swing.JMenuItem mnadmin;
-    public javax.swing.JMenuItem mnventa;
-    public javax.swing.JRadioButton r;
+    public javax.swing.JMenuItem mmenuadmin;
+    public javax.swing.JMenuItem mmenusalir;
+    public javax.swing.JRadioButton optamericano;
+    public javax.swing.JRadioButton optcapuccino;
+    public javax.swing.JRadioButton optchico;
+    public javax.swing.JRadioButton optcortado;
+    public javax.swing.JRadioButton optespresso;
+    public javax.swing.JRadioButton optgrande;
+    public javax.swing.JRadioButton optmediano;
+    public javax.swing.JTextField txtpago;
     public javax.swing.JTextField txtvalor;
     public javax.swing.JTextField txtvuelto;
     // End of variables declaration//GEN-END:variables

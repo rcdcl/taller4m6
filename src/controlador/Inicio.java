@@ -1,6 +1,7 @@
 package controlador;
 
-import vista.Peliculas;
+
+import vista.MaquinaCafe;
 
 /**
  *
@@ -13,7 +14,7 @@ public class Inicio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new Controlador(new Peliculas()).iniciar();
+        new Controlador(new MaquinaCafe()).iniciar();
     }
 
 }

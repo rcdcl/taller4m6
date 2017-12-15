@@ -35,13 +35,7 @@ public class Administracion extends javax.swing.JFrame {
         btncargastock = new javax.swing.JButton();
         btnreportestock = new javax.swing.JButton();
         btnreporteventa = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        maropt = new javax.swing.JMenu();
-        mnventa = new javax.swing.JMenuItem();
-        mnadmin = new javax.swing.JMenuItem();
-        marsalir = new javax.swing.JMenuItem();
-        macerca = new javax.swing.JMenu();
-        macercaintegrantes = new javax.swing.JMenuItem();
+        btnvolverad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -84,39 +78,11 @@ public class Administracion extends javax.swing.JFrame {
         });
         getContentPane().add(btnreporteventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 240, 60));
 
-        maropt.setText("Menu");
-
-        mnventa.setText("Venta");
-        mnventa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnventaActionPerformed(evt);
-            }
-        });
-        maropt.add(mnventa);
-
-        mnadmin.setText("Admin");
-        maropt.add(mnadmin);
-
-        marsalir.setText("Salir");
-        maropt.add(marsalir);
-
-        jMenuBar1.add(maropt);
-
-        macerca.setText("Acerca de");
-
-        macercaintegrantes.setText("Integrantes");
-        macerca.add(macercaintegrantes);
-
-        jMenuBar1.add(macerca);
-
-        setJMenuBar(jMenuBar1);
+        btnvolverad.setText("Volver");
+        getContentPane().add(btnvolverad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mnventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnventaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnventaActionPerformed
 
     private void btnreportestockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportestockActionPerformed
         // TODO add your handling code here:
@@ -182,15 +148,9 @@ public class Administracion extends javax.swing.JFrame {
     private javax.swing.JButton btncargastock;
     private javax.swing.JButton btnreportestock;
     private javax.swing.JButton btnreporteventa;
+    public javax.swing.JButton btnvolverad;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JMenu macerca;
-    public javax.swing.JMenuItem macercaintegrantes;
-    public javax.swing.JMenu maropt;
-    public javax.swing.JMenuItem marsalir;
-    private javax.swing.JMenuItem mnadmin;
-    public javax.swing.JMenuItem mnventa;
     // End of variables declaration//GEN-END:variables
 }

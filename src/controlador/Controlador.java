@@ -15,7 +15,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import modelo.Modelo;
-import vista.Peliculas;
+import vista.Acerca;
+import vista.Administracion;
+
+import vista.MaquinaCafe;
+
 
 /**
  *
@@ -24,26 +28,57 @@ import vista.Peliculas;
 public class Controlador implements ActionListener {
 
     //Declarar vista
-    Peliculas vistaElProducto;
+    
+    MaquinaCafe vistaInicial;
+    Acerca vistaAcerca = new Acerca();
+    Administracion vistaAdmin = new Administracion();
+
+    
 
     //Declaro el modelo
     Modelo modeloDato = new Modelo();
 
     //Metodo enumerar donde se agregan los botones o elementos que van a desencadenar acciones (que voy a escuchar)
     public enum Accion {
-        btnagregar,//boton agregar de vista
-        btnmodificar,// botón modificar de vista
-        btneliminar,// botón eliminar de vista
-        btnmostrar,// botón mostrar de vista
-        btnlimpiar,//botón limpiar de vista
-        btnsalir,// botón salir vista
-        btnbuscar,// botón buscar vista
-        cbodescripcion// combo descripcion vista
+        
+        //opciones menú
+        mmenuadmin, //menu MaquinaCafe->menu->admin
+        mmenusalir, //menu MaquinaCafe->menu->salir
+        macercaintegrantes, // menu MaquinaCafe->acreca de->integrantes
+        
+        //Comboboxs
+        cbotipoleche,// combo tipo de leche vista cliente
+        cboendulzante, // combo endulzante vista cliente
+        //cbotipopago, // combo paga con (efectivo o tarjeta vista cliente
+        
+        //radio buttons café
+        optespresso, // radio button café espresso vista cliente
+        optamericano, // radio button café americano vista cliente
+        optcapuccion, // radio button café capuccino vista cliente
+        optcortado,// radio button café cortado vista cliente
+        
+        //radio buttons vaso
+        optgrande, // radio button vaso grande
+        optmediano, // radio button vaso mediano
+        optchico, // radio button vaso chico
+        
+        
+        //Checkbox
+        chkextradulce, //Checkbox extra dulce
+        
+        //Botónes
+        btnpagar, // botón pagar vista cliente 
+        btnvolver, // botón volver vista acerca de
+        btnvolverad, // botón volver vista administracion
+        btncancelar, // botón cancelar preparación de café - todo vuelve a cero
+        bg_tipo_cafe, // grupo de botones tipo café
+        bg_tamano, // grupo de botones tamaño vaso
+        
     }
 
     //Agregamos el constructor de la clase
-    public Controlador(Peliculas vistaElProducto) {
-        this.vistaElProducto = vistaElProducto;
+    public Controlador(MaquinaCafe vistaInicial) {
+        this.vistaInicial = vistaInicial;
         //this.vistaElDato.setVisible(true);
 
     }
@@ -52,189 +87,184 @@ public class Controlador implements ActionListener {
     public void iniciar() {
 
         try {
-            this.vistaElProducto.setVisible(true);//Hago que la vista sea visible
-            this.vistaElProducto.setLocationRelativeTo(null);
-            this.vistaElProducto.setTitle("VideoBuster");
+            this.vistaInicial.setVisible(true);//Hago que la vista sea visible
+            this.vistaInicial.setLocationRelativeTo(null);
+            this.vistaInicial.setTitle("Máquina de Cafe");
 
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            //SwingUtilities.updateComponentTreeUI(vistaElProducto);
+            //SwingUtilities.updateComponentTreeUI(vistaInicial);
         } catch (Exception ex) {
         }
 
-        //catch (UnsupportedLookAndFeelException ex){}
-        //catch (ClassNotFoundException ex) {}
-        //catch (InstantiationException ex) {}
-        //catch (IllegalAccessException ex) {}
-        // Escuchamos el boton que ingresa el dato
-        this.vistaElProducto.btnagregar.setActionCommand("btnagregar");
-        this.vistaElProducto.btnagregar.addActionListener(this);
-        // Escuchamos el boton que modifica el dato
-        this.vistaElProducto.btnmodificar.setActionCommand("btnmodificar");
-        this.vistaElProducto.btnmodificar.addActionListener(this);
-        // Escuchamos el boton que elimina el dato
-        this.vistaElProducto.btneliminar.setActionCommand("btneliminar");
-        this.vistaElProducto.btneliminar.addActionListener(this);
-        // Escuchamos el boton que muestra el dato
-        this.vistaElProducto.btnmostrar.setActionCommand("btnmostrar");
-        this.vistaElProducto.btnmostrar.addActionListener(this);
+        // Escuchamos la opción admin de la barra menú
+        this.vistaInicial.mmenuadmin.setActionCommand("mmenuadmin");
+        this.vistaInicial.mmenuadmin.addActionListener(this);
+        // Escuchamos la opción salir de la barra menú
+        this.vistaInicial.mmenusalir.setActionCommand("mmenusalir");
+        this.vistaInicial.mmenusalir.addActionListener(this);
+        // Escuchamos la opción acerca de integrantes de la barra menú
+        this.vistaInicial.macercaintegrantes.setActionCommand("macercaintegrantes");
+        this.vistaInicial.macercaintegrantes.addActionListener(this);
+        // Escuchamos el boton pagar
+        this.vistaInicial.btnpagar.setActionCommand("btnpagar");
+        this.vistaInicial.btnpagar.addActionListener(this);
 
-        // Escuchamos el boton que limpia datos de pantalla
-        this.vistaElProducto.btnlimpiar.setActionCommand("btnlimpiar");
-        this.vistaElProducto.btnlimpiar.addActionListener(this);
+        // Escuchamos el checkbok etra dulce
+        this.vistaInicial.chkextradulce.setActionCommand("chkextradulce");
+        this.vistaInicial.chkextradulce.addActionListener(this);
         
-        // Escuchamos el boton que salir
-        this.vistaElProducto.btnsalir.setActionCommand("btnsalir");
-        this.vistaElProducto.btnsalir.addActionListener(this);
-        // Escuchamos el boton que buscar
-        this.vistaElProducto.btnbuscar.setActionCommand("btnbuscar");
-        this.vistaElProducto.btnbuscar.addActionListener(this);
-        // Escuchamos el bcombo descripción
-        this.vistaElProducto.cbodescripcion.setActionCommand("cbodescripcion");
-        this.vistaElProducto.cbodescripcion.addActionListener(this);
+        // Escuchamos el combobox endulzante
+        this.vistaInicial.cboendulzante.setActionCommand("cboendulzante");
+        this.vistaInicial.cboendulzante.addActionListener(this);
+        // Escuchamos el combobox tipo de leche
+        this.vistaInicial.cbotipoleche.setActionCommand("cbotipoleche");
+        this.vistaInicial.cbotipoleche.addActionListener(this);
+        // Escuchamos el radio button grande
+        this.vistaInicial.optgrande.setActionCommand("optgrande");
+        this.vistaInicial.optgrande.addActionListener(this);
+        // Escuchamos el radio button mediano
+        this.vistaInicial.optmediano.setActionCommand("optmediano");
+        this.vistaInicial.optmediano.addActionListener(this);
+        // Escuchamos el radio button chico
+        this.vistaInicial.optchico.setActionCommand("optchico");
+        this.vistaInicial.optchico.addActionListener(this);
+        // Escuchamos el radio button espresso
+        this.vistaInicial.optespresso.setActionCommand("optespresso");
+        this.vistaInicial.optespresso.addActionListener(this);
+        // Escuchamos el radio button americano
+        this.vistaInicial.optamericano.setActionCommand("optamericano");
+        this.vistaInicial.optamericano.addActionListener(this);
+        // Escuchamos el radio button capuccino
+        this.vistaInicial.optcapuccino.setActionCommand("optcapuccino");
+        this.vistaInicial.optcapuccino.addActionListener(this);
+        // Escuchamos el radio button cortado
+        this.vistaInicial.optcortado.setActionCommand("optcortado");
+        this.vistaInicial.optcortado.addActionListener(this);
+        // Escuchamos botón pagar vista menú
+        this.vistaInicial.btnpagar.setActionCommand("btnpagar");
+        this.vistaInicial.btnpagar.addActionListener(this);
+        // Escuchamos botón volver vista acerca de
+        this.vistaAcerca.btnvolver.setActionCommand("btnvolver");
+        this.vistaAcerca.btnvolver.addActionListener(this);
+        // Escuchamos botón volver vista administración
+        this.vistaAdmin.btnvolverad.setActionCommand("btnvolverad");
+        this.vistaAdmin.btnvolverad.addActionListener(this);        
+        // Escuchamos botón cancelar preparación vista MaquinaCafe
+        this.vistaInicial.btncancelar.setActionCommand("btncancelar");
+        this.vistaInicial.btncancelar.addActionListener(this);
+        // Escuchamos grupo de botones tipo café
+        //this.vistaInicial.bg_tipo_cafe.setActionCommand("bg_tipo_cafe");
+        //this.vistaInicial.bg_tipo_cafe.addActionListener(this);
+        // Escuchamos grupo de botones tamaño vaso
+        //this.vistaInicial.bg_tamano.setActionCommand("bg_tamano");
+        //this.vistaInicial.bg_tamano.addActionListener(this);
+        
+        
+        
+        
 
     }
 
     //limpia la tabla
-    public void eliminar() {
-        DefaultTableModel tb = (DefaultTableModel) this.vistaElProducto.tbProducto.getModel();
-        int a = this.vistaElProducto.tbProducto.getRowCount() - 1;
+    
+    /*public void eliminar() {
+        DefaultTableModel tb = (DefaultTableModel) this.vistaInicial.tbProducto.getModel();
+        int a = this.vistaInicial.tbProducto.getRowCount() - 1;
         System.out.println(a);
         for (int i = a; i >= 0; i--) {
             tb.removeRow(tb.getRowCount() - 1);
         }
 
     }
-
+    */
     //limpia los datos de pantalla
-    public void limpiartodo() {
-        this.vistaElProducto.txtnombre.setText("");
-        this.vistaElProducto.cbodescripcion.setSelectedIndex(0);
-        this.vistaElProducto.txtcodigo.setText("0");
-        this.vistaElProducto.txtprecio.setText("0");
-        this.vistaElProducto.cboformato.setSelectedIndex(0);
+    public void LimpiarTodo() {
+        //limpiamos textfields
+        this.vistaInicial.txtvalor.setText("");
+        this.vistaInicial.txtvalor.setEnabled(false);
+        this.vistaInicial.txtpago.setText("");
+        this.vistaInicial.txtpago.setEnabled(false);
+        this.vistaInicial.txtvuelto.setText("");
+        this.vistaInicial.txtvuelto.setEnabled(false);
+        //limpiamos comboboxes
+        this.vistaInicial.cboendulzante.setSelectedIndex(0);
+        this.vistaInicial.cboendulzante.setEnabled(false);
+        this.vistaInicial.cbotipoleche.setSelectedIndex(0);
+        this.vistaInicial.cbotipoleche.setEnabled(false);
+        //Limpiamos radio buttons
+        
+        this.vistaInicial.optamericano.setEnabled(false);
+        this.vistaInicial.optcapuccino.setEnabled(false);
+        this.vistaInicial.optcortado.setEnabled(false);
+        this.vistaInicial.optespresso.setEnabled(false);
+
+        this.vistaInicial.bg_tamano.clearSelection();
+        this.vistaInicial.bg_tipo_cafe.clearSelection();
+        
+        
+        //limpiamos checkboxes
+        this.vistaInicial.chkextradulce.setSelected(false);
+        this.vistaInicial.chkextradulce.setEnabled(false);
 
 
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (Accion.valueOf(e.getActionCommand())) {
-            case btnagregar:
+            
+            // case botones
+            case btnpagar:
                 //llamamos al metodo que esta en el modelo para agragar el dato y le enviamos lo que captura del textField
                 
-                try{
+                break;
+
+            case btnvolver:
+
+                this.vistaAcerca.setVisible(false);
                 
-                Peliculas ep = new Peliculas();
-                String active, active2;
+                break;
+            case btnvolverad:
 
+                this.vistaAdmin.setVisible(false);
+                this.vistaInicial.setLocationRelativeTo(null);
+                this.vistaInicial.setTitle("Máquina de Cafe");
+                this.vistaInicial.setVisible(true);
 
-                active = String.valueOf(this.vistaElProducto.cboformato.getSelectedItem());
-                active2 = String.valueOf(this.vistaElProducto.cbodescripcion.getSelectedItem());
+                break;
                 
-
-                System.out.println(active);
-                boolean correcto1 = false,
-                 correcto2 = false;
+            case btncancelar:
                 
-
-                int verificacioncodigo = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
-
-                int verificacionprecio = Integer.parseInt(this.vistaElProducto.txtprecio.getText());
-
-
-
-                if (verificacioncodigo < 10000 || verificacioncodigo > 99999) {
-
-                    JOptionPane.showMessageDialog(null, "El código debe estar entre 10000 y 99999. Intente nuevamente");
-
-                } else {
-
-                    if (active == "Seleccione" || active2 == "Seleccione") {
-                        JOptionPane.showMessageDialog(null, "Debe seleccionar Formato de pelicula y descripción");
-
-                        System.out.println(active);
-
-                    } else {
-
-                        if (verificacionprecio <= 0) {
-                            JOptionPane.showMessageDialog(null, "El precio debe ser mayor que 0");
-                        } else {
-
-                            
-                            
-                            if (this.modeloDato.agregarDatoProducto(Integer.parseInt(this.vistaElProducto.txtcodigo.getText()), this.vistaElProducto.txtnombre.getText(), this.vistaElProducto.cbodescripcion.getSelectedIndex(), Integer.parseInt(this.vistaElProducto.txtprecio.getText()), String.valueOf(this.vistaElProducto.cboformato.getSelectedItem()))) {
-
-                                JOptionPane.showMessageDialog(null, "El Producto se agregó correctamente");
-
-                                limpiartodo();
-                                eliminar();
-
-                            } else {
-                                JOptionPane.showMessageDialog(null, "No se pudo agregar");
-                            }
-                        }
-                    }
-                }
-                } catch (Exception ex){}
+                LimpiarTodo();
 
                 break;
-
-
-
-            case btneliminar:
-                //llamamos método para eliminar dato
-                int codigos = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
-                boolean confirmacion = false;
-                System.out.println("btneliminar");
-                confirmacion = this.modeloDato.eliminarDato(codigos);
-                if (confirmacion == true) {
-                    JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
-                }
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
-                break;
-
-            case btnmodificar:
-                //lamamos método para modificar valores del producto menos el código
-                if (this.modeloDato.modificarDato(Integer.parseInt(this.vistaElProducto.txtcodigo.getText()), this.vistaElProducto.txtnombre.getText(), this.vistaElProducto.cbodescripcion.getSelectedIndex(), Integer.parseInt(this.vistaElProducto.txtprecio.getText()), String.valueOf(this.vistaElProducto.cboformato.getSelectedItem()))) {
-
-                    JOptionPane.showMessageDialog(null, "El Producto se modificó correctamente");
-
-                    //Limpiamos
-                    limpiartodo();
-                    eliminar();
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se pudo modificar");
-                }
-
-                System.out.println("btnmodificar");
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
-                break;
-
-            case btnmostrar:
-
-                this.vistaElProducto.tbProducto.setModel(this.modeloDato.mostrarDato());
-                break;
-
-            case btnsalir:
             
+                
+            //Case Radio buttons Vaso
+
+            
+            //case opciones barra menú vista MaquinaCafe
+            case mmenuadmin:
+                try {
+                    
+                    this.vistaAdmin.setLocationRelativeTo(null);
+                    this.vistaAdmin.setTitle("Administración");
+                    this.vistaAdmin.setVisible(true);
+                    this.vistaInicial.setVisible(false);
+
+                } catch (Exception ex) {
+                }
+                break;
+                
+            case mmenusalir:
                 System.exit(0);
                 break;
-                
-            case btnbuscar:
-                int codigoss = Integer.parseInt(this.vistaElProducto.txtcodigo.getText());
-                boolean bconfirmacion = false;
-                System.out.println("buscar");
-                this.vistaElProducto.tbProducto.setModel((TableModel) this.modeloDato.buscarDato(codigoss));
-                if (bconfirmacion == true) {
-                    JOptionPane.showMessageDialog(null, "El registro fue eliminado con éxito");
-                }
-                
-                break;
-                
-            case btnlimpiar:
-                eliminar();
-                limpiartodo();
+
+            case macercaintegrantes:
+
+                this.vistaAcerca.setLocationRelativeTo(null);
+                this.vistaAcerca.setTitle("Acerca de ...");
+                this.vistaAcerca.setVisible(true);
                 break;
 
         }

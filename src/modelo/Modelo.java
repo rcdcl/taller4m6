@@ -6,16 +6,16 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import sql.Conexion;
-import vista.Peliculas;
+
 
 public class Modelo extends Conexion {
-
-    Peliculas vistaElProducto;
+/*
+    Cliente vistaElProducto;
 
     public Modelo() {
     }
 
-    public Modelo(Peliculas vistaElProducto) {
+    public Modelo(Cliente vistaElProducto) {
         this.vistaElProducto = vistaElProducto;
     }
 
@@ -89,7 +89,7 @@ public class Modelo extends Conexion {
     //Eliminar Dato de la BD 
     public boolean eliminarDato(int codigo) {
         // Se arma la consulta
-        Peliculas ep = new Peliculas();
+        Cliente ep = new Cliente();
         Object o = new Object();
 
         System.out.println("buscarDato()");
@@ -176,5 +176,5 @@ public class Modelo extends Conexion {
 
     //Modificar los datos de la BD
 
-
+*/
 }

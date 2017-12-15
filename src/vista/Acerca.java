@@ -32,13 +32,7 @@ public class Acerca extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        maropt = new javax.swing.JMenu();
-        mnventa = new javax.swing.JMenuItem();
-        mnadmin = new javax.swing.JMenuItem();
-        marsalir = new javax.swing.JMenuItem();
-        macerca = new javax.swing.JMenu();
-        macercaintegrantes = new javax.swing.JMenuItem();
+        btnvolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -65,39 +59,11 @@ public class Acerca extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 710, 500));
 
-        maropt.setText("Menu");
-
-        mnventa.setText("Venta");
-        mnventa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnventaActionPerformed(evt);
-            }
-        });
-        maropt.add(mnventa);
-
-        mnadmin.setText("Admin");
-        maropt.add(mnadmin);
-
-        marsalir.setText("Salir");
-        maropt.add(marsalir);
-
-        jMenuBar1.add(maropt);
-
-        macerca.setText("Acerca de");
-
-        macercaintegrantes.setText("Integrantes");
-        macerca.add(macercaintegrantes);
-
-        jMenuBar1.add(macerca);
-
-        setJMenuBar(jMenuBar1);
+        btnvolver.setText("Volver");
+        getContentPane().add(btnvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mnventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnventaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnventaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,15 +166,9 @@ public class Acerca extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup bg_tamano;
     public javax.swing.ButtonGroup bg_tipo_cafe;
+    public javax.swing.JButton btnvolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JMenu macerca;
-    public javax.swing.JMenuItem macercaintegrantes;
-    public javax.swing.JMenu maropt;
-    public javax.swing.JMenuItem marsalir;
-    private javax.swing.JMenuItem mnadmin;
-    public javax.swing.JMenuItem mnventa;
     // End of variables declaration//GEN-END:variables
 }
