@@ -138,7 +138,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
 
         btnpagar.setBackground(new java.awt.Color(102, 102, 102));
         btnpagar.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        btnpagar.setForeground(new java.awt.Color(153, 0, 0));
+        btnpagar.setForeground(new java.awt.Color(152, 0, 0));
         btnpagar.setText("PAGAR");
         btnpagar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 2, true));
         btnpagar.setEnabled(false);
