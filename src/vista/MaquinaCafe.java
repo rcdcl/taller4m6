@@ -135,7 +135,8 @@ public class MaquinaCafe extends javax.swing.JFrame {
         txtvuelto.setEnabled(false);
         getContentPane().add(txtvuelto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 110, 30));
 
-        btnpagar.setBackground(new java.awt.Color(255, 255, 255));
+        btnpagar.setBackground(new java.awt.Color(187, 187, 187));
+        btnpagar.setForeground(new java.awt.Color(255, 255, 255));
         btnpagar.setText("PAGAR");
         btnpagar.setEnabled(false);
         btnpagar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +144,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 btnpagarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 110, 70));
+        getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 110, 70));
 
         cbotipoleche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Entera", "Descremada", "Soya", "Almendra" }));
         cbotipoleche.setEnabled(false);
@@ -175,6 +176,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 230, -1));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cliente.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

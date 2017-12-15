@@ -218,6 +218,9 @@ public class Controlador implements ActionListener {
         this.vistaInicial.optchico.setEnabled(true);
         this.vistaInicial.optmediano.setEnabled(true);
         this.vistaInicial.optgrande.setEnabled(true);
+        
+        //Limpiamos botón pago
+        this.vistaInicial.btnpagar.setEnabled(false);
 
 
     }
@@ -350,7 +353,11 @@ public class Controlador implements ActionListener {
                         }
                         System.out.println("extra_endulzante = "+extra_endulzante);
                         
+                        //registrar venta en table venta
                         this.modeloDato.insertarVenta(extra_endulzante, descuento1, id_cafe, 1, this.vistaInicial.cboendulzante.getSelectedIndex(), id_leche, id_vaso, valor);
+                        //descontar insumos de la tablas
+                        this.modeloDato.descontarStock(extra_endulzante, descuento1, id_cafe, 1, this.vistaInicial.cboendulzante.getSelectedIndex(), id_leche, id_vaso, valor);
+                        
                         
                         
                         LimpiarTodo();
