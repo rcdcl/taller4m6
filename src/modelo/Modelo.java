@@ -20,10 +20,7 @@ public class Modelo extends Conexion {
         this.vistaElProducto = vistaElProducto;
     }
     */
-    
-    public void reporteStock() {
-        
-    }
+
 
     public DefaultTableModel reporteVentas() {
         DefaultTableModel tablemodel = new DefaultTableModel();
