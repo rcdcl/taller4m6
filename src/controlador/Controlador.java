@@ -314,14 +314,17 @@ public class Controlador implements ActionListener {
 
                 break;
                 
-            case btnreporteventa:
+            case btnreporteventa: //Reporte - Consula Venta
                 this.vistaAdmin.tbreporte.setModel(this.modeloDato.reporteVentas());
                 
                 break;
                 
-            
-            
+            case btnreportestock: //Reporte - Consula Stock
+                this.vistaAdmin.tbreporte.setModel(this.modeloDato.reporteStock());
                 
+                break;
+               
+
             //Case Radio buttons Vaso
                 
             case optgrande:

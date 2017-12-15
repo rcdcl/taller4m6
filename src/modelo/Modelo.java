@@ -21,11 +21,167 @@ public class Modelo extends Conexion {
     }
     */
     
-    public boolean reporteStock() {
+    public DefaultTableModel reporteStock() {
         
-        
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = 
+        {"Cafe", "A.Blanca", "A.Rubia", "Stevia","L.Entera","L.Descremada", "L.Soya", "L.Almendra",
+            "V.Chico","V.Mediano","V.Grande"};
 
-        return true;
+        try {
+            PreparedStatement pstm1 = this.getConexion().prepareStatement("SELECT count(*) as total from cafe");
+            ResultSet res1 = pstm1.executeQuery();
+            res1.next();
+            registros = res1.getInt("total");
+            res1.close();
+            //
+            PreparedStatement pstm2 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
+            ResultSet res2 = pstm2.executeQuery();
+            res2.next();
+            registros = res2.getInt("total");
+            res2.close();
+            //
+            PreparedStatement pstm3 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
+            ResultSet res3 = pstm3.executeQuery();
+            res3.next();
+            registros = res3.getInt("total");
+            res3.close();
+            //
+            PreparedStatement pstm4 = this.getConexion().prepareStatement("SELECT count(*) as total from endulzante");
+            ResultSet res4 = pstm4.executeQuery();
+            res4.next();
+            registros = res4.getInt("total");
+            res4.close();
+            //
+            PreparedStatement pstm5 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
+            ResultSet res5 = pstm5.executeQuery();
+            res5.next();
+            registros = res5.getInt("total");
+            res5.close();
+            //
+            PreparedStatement pstm6 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
+            ResultSet res6 = pstm6.executeQuery();
+            res6.next();
+            registros = res6.getInt("total");
+            res6.close();
+            //
+            PreparedStatement pstm7 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
+            ResultSet res7 = pstm7.executeQuery();
+            res7.next();
+            registros = res7.getInt("total");
+            res7.close();
+            //
+            PreparedStatement pstm8 = this.getConexion().prepareStatement("SELECT count(*) as total from leche");
+            ResultSet res8 = pstm8.executeQuery();
+            res8.next();
+            registros = res8.getInt("total");
+            res8.close();
+            //
+            PreparedStatement pstm9 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
+            ResultSet res9 = pstm9.executeQuery();
+            res9.next();
+            registros = res9.getInt("total");
+            res9.close();
+            //
+            PreparedStatement pstm10 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
+            ResultSet res10 = pstm10.executeQuery();
+            res10.next();
+            registros = res10.getInt("total");
+            res10.close();
+            //
+            PreparedStatement pstm11 = this.getConexion().prepareStatement("SELECT count(*) as total from vaso");
+            ResultSet res11 = pstm11.executeQuery();
+            res11.next();
+            registros = res11.getInt("total");
+            res11.close();
+            
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        Object[][] data = new String[registros][11];
+        try {
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(
+            "select stock_c from cafe where id_coffe = 1;");    // Stock Cafe
+            PreparedStatement pstm2 = this.getConexion().prepareStatement(
+            "select stock_end from endulzante where id_end = 1;" );//Stock azucar blanca
+            PreparedStatement pstm3 = this.getConexion().prepareStatement(
+            "select stock_end from endulzante where id_end = 2;" ); //Stock azucar Rubia
+            PreparedStatement pstm4 = this.getConexion().prepareStatement(
+            "select stock_end from endulzante where id_end = 3;"); //Stock Stevia
+            PreparedStatement pstm5 = this.getConexion().prepareStatement(
+            "select stock_leche from leche where id_leche = 1;" ); //Stock Leche Entera
+            PreparedStatement pstm6 = this.getConexion().prepareStatement(
+            "select stock_leche from leche where id_leche = 2;"); //Stock Leche Descremada
+            PreparedStatement pstm7 = this.getConexion().prepareStatement(
+            "select stock_leche from leche where id_leche = 3;" ); //Stock Leche Soya
+            PreparedStatement pstm8 = this.getConexion().prepareStatement(
+            "select stock_leche from leche where id_leche = 4;"); //Stock Leche Almendra
+            PreparedStatement pstm9 = this.getConexion().prepareStatement(
+            "select stock_vaso from vaso where id_vaso = 1;" ); //Stock Vaso Chico
+            PreparedStatement pstm10 = this.getConexion().prepareStatement(
+            "select stock_vaso from vaso where id_vaso = 2;" ); //Stock Vaso Mediano
+            PreparedStatement pstm11 = this.getConexion().prepareStatement(
+            "select stock_vaso from vaso where id_vaso = 3;" ); //Stock Vaso Grande
+     
+            ResultSet res1 = pstm1.executeQuery();
+            ResultSet res2 = pstm2.executeQuery();
+            ResultSet res3 = pstm3.executeQuery();
+            ResultSet res4 = pstm4.executeQuery();
+            ResultSet res5 = pstm5.executeQuery();
+            ResultSet res6 = pstm6.executeQuery();
+            ResultSet res7 = pstm7.executeQuery();
+            ResultSet res8 = pstm8.executeQuery();
+            ResultSet res9 = pstm9.executeQuery();
+            ResultSet res10 = pstm10.executeQuery();
+            ResultSet res11 = pstm11.executeQuery();
+
+            int i = 0;
+            while (res1.next()) {
+
+                data[i][0] = res1.getString("stock_c");               
+            }
+            while (res2.next()) {
+                data[i][1] = res2.getString("endulzante.stock_end");                               
+            }
+            while (res3.next()) {               
+                data[i][2] = res3.getString("endulzante.stock_end");              
+            }
+            while (res4.next()) {               
+                data[i][3] = res4.getString("endulzante.stock_end");             
+            }
+            while (res5.next()) {               
+                data[i][4] = res5.getString("leche.stock_leche");
+            }
+            while (res6.next()) {               
+                data[i][5] = res6.getString("leche.stock_leche");               
+            }
+            while (res7.next()) {               
+                data[i][6] = res7.getString("leche.stock_leche");              
+            }
+            while (res8.next()) {               
+                data[i][7] = res8.getString("leche.stock_leche");
+               
+            }            
+            while (res9.next()) {               
+                data[i][8] = res9.getString("vaso.stock_vaso");             
+            }
+            while (res10.next()) {               
+                data[i][9] = res10.getString("vaso.stock_vaso");              
+            }
+            while (res11.next()) {               
+
+                data[i][10] = res11.getString("vaso.stock_vaso");                
+            }
+            res1.close(); res2.close();res3.close();res4.close();res5.close();res6.close();
+            res7.close();res8.close();res9.close();res10.close();res11.close();
+            tablemodel.setDataVector(data, columNames);            
+            getConexion().close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+       
     }
 
     public DefaultTableModel reporteVentas() {
@@ -68,12 +224,12 @@ public class Modelo extends Conexion {
             System.err.println(e.getMessage());
         }
         return tablemodel;
-        
-        
-
 
     }
 
+    
+    
+    
     public boolean cargarStock() {
 
         return true;
