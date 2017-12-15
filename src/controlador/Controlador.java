@@ -196,6 +196,11 @@ public class Controlador implements ActionListener {
         //limpiamos checkboxes
         this.vistaInicial.chkextradulce.setSelected(false);
         this.vistaInicial.chkextradulce.setEnabled(false);
+        
+        //Habilitamos tamaño
+        this.vistaInicial.optchico.setEnabled(true);
+        this.vistaInicial.optmediano.setEnabled(true);
+        this.vistaInicial.optgrande.setEnabled(true);
 
 
     }
@@ -222,6 +227,19 @@ public class Controlador implements ActionListener {
 		return false;
 	}
 }
+
+    public void deshabilitarTamano(){
+                this.vistaInicial.optchico.setEnabled(false);
+                this.vistaInicial.optmediano.setEnabled(false);
+                this.vistaInicial.optgrande.setEnabled(false);
+    }
+    
+        public void deshabilitarTipoCafe(){
+                this.vistaInicial.optamericano.setEnabled(false);
+                this.vistaInicial.optcapuccino.setEnabled(false);
+                this.vistaInicial.optcortado.setEnabled(false);
+                this.vistaInicial.optespresso.setEnabled(false);
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -304,19 +322,21 @@ public class Controlador implements ActionListener {
                 
             case optespresso:
                 this.vistaInicial.cboendulzante.setEnabled(true);
+                deshabilitarTamano();
 
                 break;
             case optamericano:
                 this.vistaInicial.cboendulzante.setEnabled(true);
+                deshabilitarTamano();
 
                 break;
             case optcapuccino:
                 this.vistaInicial.cboendulzante.setEnabled(true);
-
+                deshabilitarTamano();
                 break;
             case optcortado:
                 this.vistaInicial.cboendulzante.setEnabled(true);
-
+                deshabilitarTamano();
                 break;
                 
             // case comboboxes
@@ -332,6 +352,7 @@ public class Controlador implements ActionListener {
                             this.vistaInicial.btnpagar.setEnabled(true);
                         } else {
                         this.vistaInicial.cbotipoleche.setEnabled(true);
+                        deshabilitarTipoCafe();
                     }
                     
                 } else {
@@ -342,6 +363,7 @@ public class Controlador implements ActionListener {
                         } else {
                             
                             this.vistaInicial.cbotipoleche.setEnabled(true);
+                            deshabilitarTipoCafe();
                         }
                         
                     }
