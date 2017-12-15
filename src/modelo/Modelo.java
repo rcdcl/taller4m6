@@ -234,10 +234,48 @@ public class Modelo extends Conexion {
 
         return true;
     }
+    // Método para consultar ventas que se usa en e controlador para generar descuento    
+    public int consultaCantidadVendida(){
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from venta");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
         
+        
+        //registros=6;
+        return registros;
+        
+        
+    }
 
+    public boolean insertarVenta (int ext_end, int descuento, int id_cafe, int id_coffe, int id_end, int id_leche, int id_vaso, int valor_venta){
+        
+        //preparo el query
+        String query = "INSERT INTO venta (ext_end, descuento, id_cafe, id_coffe, id_end, id_leche, id_vaso, valor_venta)" 
+                + "values ('"+ext_end+"', '"+descuento+"', '"+id_cafe+"', '"+id_coffe+"', '"+id_end+"', '"+id_leche+"', '"+id_vaso+"', '"+valor_venta+"');";
+        //envío query
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(query);
+            pstm.execute();
+            pstm.close();
+            getConexion().close();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
 
+        }
 
+        return false;
+        
+        
+    }
 
 
         //Agregar datos a la BD
