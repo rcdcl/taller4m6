@@ -153,6 +153,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
         cboendulzante.setEnabled(false);
         getContentPane().add(cboendulzante, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
 
+        txtpago.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 0, 0), new java.awt.Color(102, 0, 0)));
         txtpago.setEnabled(false);
         getContentPane().add(txtpago, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 100, 30));
 
