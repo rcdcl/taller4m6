@@ -9,7 +9,8 @@ import sql.Conexion;
 
 
 public class Modelo extends Conexion {
-/*
+
+    /*
     Cliente vistaElProducto;
 
     public Modelo() {
@@ -18,8 +19,72 @@ public class Modelo extends Conexion {
     public Modelo(Cliente vistaElProducto) {
         this.vistaElProducto = vistaElProducto;
     }
+    */
+    
+    public boolean reporteStock() {
+        
+        
 
-    //Agregar datos a la BD
+        return true;
+    }
+
+    public DefaultTableModel reporteVentas() {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"id_venta", "nombre", "café", "Endulzante", "Extra Endulzante", "Tamaño vaso", "Tipo Leche", "Descuento", "Valor Venta"};
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from venta");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        Object[][] data = new String[registros][9];
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT venta.id_venta, tipo_cafe.nombre, cafe.cafe, endulzante.tipo_end, venta.ext_end, vaso.tipo_vaso, leche.tipo_leche, venta.descuento, venta.valor_venta FROM venta INNER JOIN tipo_cafe ON venta.id_cafe=tipo_cafe.id_cafe INNER JOIN cafe ON venta.id_coffe=cafe.id_coffe INNER JOIN endulzante ON venta.id_end=endulzante.id_end INNER JOIN leche ON venta.id_leche=leche.id_leche INNER JOIN vaso ON venta.id_vaso=vaso.id_vaso");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+
+                data[i][0] = res.getString("venta.id_venta");
+                data[i][1] = res.getString("tipo_cafe.nombre");
+                data[i][2] = res.getString("cafe.cafe");
+                data[i][3] = res.getString("endulzante.tipo_end");
+                data[i][4] = res.getString("venta.ext_end");
+                data[i][5] = res.getString("vaso.tipo_vaso");
+                data[i][6] = res.getString("leche.tipo_leche");
+                data[i][7] = res.getString("venta.descuento");
+                data[i][8] = res.getString("venta.valor_venta");
+ 
+
+                i++;
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+            getConexion().close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+        
+        
+
+
+    }
+
+    public boolean cargarStock() {
+
+        return true;
+    }
+        
+
+
+
+
+
+        //Agregar datos a la BD
     public boolean agregarDatoProducto(int codigo, String nombre, int id_categoria, int precio, String formato) {
         // Se arma la consulta para verificar si el código a ingresar ya existe
 
@@ -87,6 +152,7 @@ public class Modelo extends Conexion {
     }
 
     //Eliminar Dato de la BD 
+    /*
     public boolean eliminarDato(int codigo) {
         // Se arma la consulta
         Cliente ep = new Cliente();
@@ -113,46 +179,9 @@ public class Modelo extends Conexion {
         return false;
 
     }
+    */
 
-    //Muestra los datos de la BD
-    public DefaultTableModel mostrarDato() {
-        DefaultTableModel tablemodel = new DefaultTableModel();
-        int registros = 0;
-        String[] columNames = {"Codigo", "Precio", "Descripcion", "Formato 4K", "Nombre"};
-        try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total from pelicula");
-            ResultSet res = pstm.executeQuery();
-            res.next();
-            registros = res.getInt("total");
-            res.close();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        Object[][] data = new String[registros][5];
-        try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT pelicula.codigo, pelicula.precio, categoria.descripcion, pelicula.formato4k, pelicula.nombre FROM pelicula INNER JOIN categoria ON pelicula.id_categoria=categoria.id");
-            ResultSet res = pstm.executeQuery();
-            int i = 0;
-            while (res.next()) {
-
-                data[i][0] = res.getString("pelicula.codigo");
-                data[i][1] = res.getString("pelicula.precio");
-                data[i][2] = res.getString("categoria.descripcion");
-                data[i][3] = res.getString("pelicula.formato4k");
-                data[i][4] = res.getString("pelicula.nombre");
- 
-
-                i++;
-            }
-            res.close();
-            tablemodel.setDataVector(data, columNames);
-            getConexion().close();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return tablemodel;
-
-    }
+    
 
     //Modificar los datos de la BD
     public boolean modificarDato(int codigo, String nombre, int id_categoria, int precio, String formato) {
@@ -176,5 +205,5 @@ public class Modelo extends Conexion {
 
     //Modificar los datos de la BD
 
-*/
+
 }

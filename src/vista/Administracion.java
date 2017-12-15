@@ -31,20 +31,24 @@ public class Administracion extends javax.swing.JFrame {
         bg_tamano = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbreporte = new javax.swing.JTable();
         btncargastock = new javax.swing.JButton();
         btnreportestock = new javax.swing.JButton();
         btnreporteventa = new javax.swing.JButton();
         btnvolverad = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(850, 650));
+        setMinimumSize(new java.awt.Dimension(850, 650));
+        setPreferredSize(new java.awt.Dimension(850, 650));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("* El sistema de reposición completa la capacidad máxima de la máquina de café.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, -1, 20));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbreporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -52,9 +56,9 @@ public class Administracion extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbreporte);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 740, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 810, 410));
 
         btncargastock.setText("Cargar Stock de Máquina");
         getContentPane().add(btncargastock, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 230, 60));
@@ -76,7 +80,10 @@ public class Administracion extends javax.swing.JFrame {
         getContentPane().add(btnreporteventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 240, 60));
 
         btnvolverad.setText("Volver");
-        getContentPane().add(btnvolverad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
+        getContentPane().add(btnvolverad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, -1, -1));
+
+        btnlimpiar.setText("Limpiar Tabla");
+        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,12 +149,13 @@ public class Administracion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup bg_tamano;
     public javax.swing.ButtonGroup bg_tipo_cafe;
-    private javax.swing.JButton btncargastock;
-    private javax.swing.JButton btnreportestock;
-    private javax.swing.JButton btnreporteventa;
+    public javax.swing.JButton btncargastock;
+    public javax.swing.JButton btnlimpiar;
+    public javax.swing.JButton btnreportestock;
+    public javax.swing.JButton btnreporteventa;
     public javax.swing.JButton btnvolverad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable tbreporte;
     // End of variables declaration//GEN-END:variables
 }

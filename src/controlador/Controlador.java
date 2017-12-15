@@ -71,6 +71,12 @@ public class Controlador implements ActionListener {
         btnvolver, // botón volver vista acerca de
         btnvolverad, // botón volver vista administracion
         btncancelar, // botón cancelar preparación de café - todo vuelve a cero
+        btnreportestock, // botón reporte stock vista administración
+        btnreporteventa, // botón reporte venta vista administración
+        btncargastock, // botón recargar stock vista administración
+        btnlimpiar, // botón limpiar tabla vista Administración
+        
+        
         bg_tipo_cafe, // grupo de botones tipo café
         bg_tamano, // grupo de botones tamaño vaso
         
@@ -151,23 +157,34 @@ public class Controlador implements ActionListener {
         // Escuchamos botón cancelar preparación vista MaquinaCafe
         this.vistaInicial.btncancelar.setActionCommand("btncancelar");
         this.vistaInicial.btncancelar.addActionListener(this);
-
+        // Escuchamos botón consultar stock vista Administración
+        this.vistaAdmin.btnreportestock.setActionCommand("btnreportestock");
+        this.vistaAdmin.btnreportestock.addActionListener(this);
+        // Escuchamos botón consultar venta vista Administración
+        this.vistaAdmin.btnreporteventa.setActionCommand("btnreporteventa");
+        this.vistaAdmin.btnreporteventa.addActionListener(this);
+        // Escuchamos botón carga stock vista Administración
+        this.vistaAdmin.btncargastock.setActionCommand("btncargastock");
+        this.vistaAdmin.btncargastock.addActionListener(this);
+        // Escuchamos botón limpiar tabla vista Administración
+        this.vistaAdmin.btnlimpiar.setActionCommand("btnlimpiar");
+        this.vistaAdmin.btnlimpiar.addActionListener(this);
         
 
     }
 
     //limpia la tabla
     
-    /*public void eliminar() {
-        DefaultTableModel tb = (DefaultTableModel) this.vistaInicial.tbProducto.getModel();
-        int a = this.vistaInicial.tbProducto.getRowCount() - 1;
+    public void borrarTabla() {
+        DefaultTableModel tb = (DefaultTableModel) this.vistaAdmin.tbreporte.getModel();
+        int a = this.vistaAdmin.tbreporte.getRowCount() - 1;
         System.out.println(a);
         for (int i = a; i >= 0; i--) {
             tb.removeRow(tb.getRowCount() - 1);
         }
 
     }
-    */
+    
     //limpia los datos de pantalla
     public void LimpiarTodo() {
         //limpiamos textfields
@@ -281,19 +298,28 @@ public class Controlador implements ActionListener {
                 
                 break;
             case btnvolverad:
-
+                borrarTabla();
                 this.vistaAdmin.setVisible(false);
                 this.vistaInicial.setLocationRelativeTo(null);
                 this.vistaInicial.setTitle("Máquina de Cafe");
                 this.vistaInicial.setVisible(true);
-
                 break;
                 
+            case btnlimpiar:
+                borrarTabla();
+                break;
             case btncancelar:
                 
                 LimpiarTodo();
 
                 break;
+                
+            case btnreporteventa:
+                this.vistaAdmin.tbreporte.setModel(this.modeloDato.reporteVentas());
+                
+                break;
+                
+            
             
                 
             //Case Radio buttons Vaso
