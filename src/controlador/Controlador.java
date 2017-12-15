@@ -392,6 +392,11 @@ public class Controlador implements ActionListener {
                 this.vistaAdmin.tbreporte.setModel(this.modeloDato.reporteStock());
                 
                 break;
+                
+            case btncargastock:
+                this.modeloDato.cargarStock();
+                
+                break;
                
 
             //Case Radio buttons Vaso

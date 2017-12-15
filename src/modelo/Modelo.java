@@ -305,8 +305,59 @@ public class Modelo extends Conexion {
     
     
     public boolean cargarStock() {
+        try {
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(
+            "UPDATE cafe SET stock_c = 50 WHERE id_coffe =1;"); // Stock Cafe  UPDATE facturas SET base_imponible = '300' WHERE num_factura = '30';
+            PreparedStatement pstm2 = this.getConexion().prepareStatement(
+            "UPDATE endulzante SET stock_end = 50 WHERE id_end =1;");//Stock azucar blanca
+            PreparedStatement pstm3 = this.getConexion().prepareStatement(
+            "UPDATE endulzante SET stock_end = 50 WHERE id_end =2;");//Stock azucar Rubia
+            PreparedStatement pstm4 = this.getConexion().prepareStatement(
+            "UPDATE endulzante SET stock_end = 50 WHERE id_end =3;");//Stock Stevia
+            PreparedStatement pstm5 = this.getConexion().prepareStatement(
+            "UPDATE leche SET stock_leche = 50 WHERE id_leche =1;");//Stock Leche Entera
+            PreparedStatement pstm6 = this.getConexion().prepareStatement(
+            "UPDATE leche SET stock_leche = 50 WHERE id_leche =2;"); //Stock Leche Descremada
+            PreparedStatement pstm7 = this.getConexion().prepareStatement(
+            "UPDATE leche SET stock_leche = 50 WHERE id_leche =3;");//Stock Leche Soya
+            PreparedStatement pstm8 = this.getConexion().prepareStatement(
+            "UPDATE leche SET stock_leche = 50 WHERE id_leche =4;");//Stock Leche Almendra
+            PreparedStatement pstm9 = this.getConexion().prepareStatement(
+            "UPDATE vaso SET stock_vaso = 50 WHERE id_vaso =1;");//Stock Vaso Chico
+            PreparedStatement pstm10 = this.getConexion().prepareStatement(
+            "UPDATE vaso SET stock_vaso = 50 WHERE id_vaso =2;");//Stock Vaso Mediano
+            PreparedStatement pstm11 = this.getConexion().prepareStatement(
+            "UPDATE vaso SET stock_vaso = 50 WHERE id_vaso =3;"); //Stock Vaso Grande
 
-        return true;
+            //Sentencias que se usan para hacer UPDATE en MySQL
+            int r1 = pstm1.executeUpdate();
+            int r2 = pstm2.executeUpdate();
+            int r3 = pstm3.executeUpdate();
+            int r4 = pstm4.executeUpdate();
+            int r5 = pstm5.executeUpdate();
+            int r6 = pstm6.executeUpdate();
+            int r7 = pstm7.executeUpdate();
+            int r8 = pstm8.executeUpdate();
+            int r9 = pstm9.executeUpdate();
+            int r10 = pstm10.executeUpdate();
+            int r11 = pstm11.executeUpdate();
+
+            
+            pstm1.close(); pstm2.close();pstm3.close();pstm4.close();pstm5.close();pstm6.close();
+            pstm7.close();pstm8.close();pstm9.close();pstm10.close();pstm11.close();
+                       
+            getConexion().close();
+            JOptionPane.showMessageDialog(null, "Carga de stock de insumos realizada con éxito.\nVuelva a revisar 'Reporte de Stock'");
+            
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return false; 
+        }
+         
+        
+
+        
     }
     // Método para consultar ventas que se usa en e controlador para generar descuento    
     public int consultaCantidadVendida(){
