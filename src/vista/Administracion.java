@@ -42,7 +42,7 @@ public class Administracion extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("* El sistema de reposición completa la capacidad máxima de la máquina de café.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -54,10 +54,10 @@ public class Administracion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 740, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 740, 410));
 
         btncargastock.setText("Cargar Stock de Máquina");
-        getContentPane().add(btncargastock, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 230, 60));
+        getContentPane().add(btncargastock, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 230, 60));
 
         btnreportestock.setText("Reporte Stock");
         btnreportestock.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +65,7 @@ public class Administracion extends javax.swing.JFrame {
                 btnreportestockActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreportestock, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 230, 60));
+        getContentPane().add(btnreportestock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 60));
 
         btnreporteventa.setText("Reporte  Ventas");
         btnreporteventa.addActionListener(new java.awt.event.ActionListener() {
@@ -73,10 +73,10 @@ public class Administracion extends javax.swing.JFrame {
                 btnreporteventaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreporteventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 240, 60));
+        getContentPane().add(btnreporteventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 240, 60));
 
         btnvolverad.setText("Volver");
-        getContentPane().add(btnvolverad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, -1, -1));
+        getContentPane().add(btnvolverad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
