@@ -54,7 +54,7 @@ public class Controlador implements ActionListener {
         //radio buttons café
         optespresso, // radio button café espresso vista cliente
         optamericano, // radio button café americano vista cliente
-        optcapuccion, // radio button café capuccino vista cliente
+        optcapuccino, // radio button café capuccino vista cliente
         optcortado,// radio button café cortado vista cliente
         
         //radio buttons vaso
@@ -152,16 +152,6 @@ public class Controlador implements ActionListener {
         // Escuchamos botón cancelar preparación vista MaquinaCafe
         this.vistaInicial.btncancelar.setActionCommand("btncancelar");
         this.vistaInicial.btncancelar.addActionListener(this);
-        // Escuchamos grupo de botones tipo café
-        //this.vistaInicial.bg_tipo_cafe.setActionCommand("bg_tipo_cafe");
-        //this.vistaInicial.bg_tipo_cafe.addActionListener(this);
-        // Escuchamos grupo de botones tamaño vaso
-        //this.vistaInicial.bg_tamano.setActionCommand("bg_tamano");
-        //this.vistaInicial.bg_tamano.addActionListener(this);
-        
-        
-        
-        
 
     }
 
@@ -241,6 +231,83 @@ public class Controlador implements ActionListener {
             
                 
             //Case Radio buttons Vaso
+                
+            case optgrande:
+
+                this.vistaInicial.optamericano.setEnabled(true);
+                this.vistaInicial.optcapuccino.setEnabled(true);
+                this.vistaInicial.optcortado.setEnabled(true);
+
+                break;
+
+            case optmediano:
+                this.vistaInicial.optamericano.setEnabled(true);
+                this.vistaInicial.optcapuccino.setEnabled(true);
+                this.vistaInicial.optcortado.setEnabled(true);
+
+
+                break;
+
+            case optchico:
+
+                this.vistaInicial.optcapuccino.setEnabled(true);
+                this.vistaInicial.optcortado.setEnabled(true);
+                this.vistaInicial.optespresso.setEnabled(true);
+
+                break;
+                
+            case optespresso:
+                this.vistaInicial.cboendulzante.setEnabled(true);
+
+                break;
+            case optamericano:
+                this.vistaInicial.cboendulzante.setEnabled(true);
+
+                break;
+            case optcapuccino:
+                this.vistaInicial.cboendulzante.setEnabled(true);
+
+                break;
+            case optcortado:
+                this.vistaInicial.cboendulzante.setEnabled(true);
+
+                break;
+                
+            // case comboboxes
+                
+            case cboendulzante:
+                
+                if (this.vistaInicial.cboendulzante.getSelectedItem() != "Seleccione"){
+                    if (this.vistaInicial.cboendulzante.getSelectedItem() != "Sin Endulzar"){
+                        this.vistaInicial.chkextradulce.setEnabled(true);
+                        if ((this.vistaInicial.optamericano.isSelected()== true) || (this.vistaInicial.optespresso.isSelected()== true)){
+                            this.vistaInicial.txtpago.setEnabled(true);
+                        } else {
+                        this.vistaInicial.cbotipoleche.setEnabled(true);
+                    }
+                    
+                } else {
+                        if ((this.vistaInicial.optamericano.isSelected()== true) || (this.vistaInicial.optespresso.isSelected()== true)){
+                            this.vistaInicial.txtpago.setEnabled(true);
+                        } else {
+                            
+                            this.vistaInicial.cbotipoleche.setEnabled(true);
+                        }
+                        
+                    }
+                }
+                break;
+                        case cbotipoleche:
+                
+                if (this.vistaInicial.cbotipoleche.getSelectedItem() != "Seleccione"){
+                    
+                        this.vistaInicial.txtpago.setEnabled(true);
+                    }
+                    
+                
+                
+                break;    
+                
 
             
             //case opciones barra menú vista MaquinaCafe

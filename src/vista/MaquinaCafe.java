@@ -44,6 +44,8 @@ public class MaquinaCafe extends javax.swing.JFrame {
         txtpago = new javax.swing.JTextField();
         chkextradulce = new javax.swing.JCheckBox();
         btncancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         maropt = new javax.swing.JMenu();
@@ -158,8 +160,19 @@ public class MaquinaCafe extends javax.swing.JFrame {
         chkextradulce.setEnabled(false);
         getContentPane().add(chkextradulce, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, -1, -1));
 
-        btncancelar.setText("Cancelar Preparacion");
+        btncancelar.setText("Cancelar Preparación");
         getContentPane().add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        jScrollPane1.setEnabled(false);
+        jScrollPane1.setHorizontalScrollBar(null);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("IMPORTANTE: Si se equivoca en la\npreparación de su café presione el\nbotón \"Cancelar Preparación\" y\nvuelva a intentarlo.");
+        jTextArea1.setEnabled(false);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 230, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cliente.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -270,6 +283,8 @@ public class MaquinaCafe extends javax.swing.JFrame {
     public javax.swing.JCheckBox chkextradulce;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenu macerca;
     public javax.swing.JMenuItem macercaintegrantes;
     public javax.swing.JMenu maropt;
