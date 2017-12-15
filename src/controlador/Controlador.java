@@ -255,6 +255,7 @@ public class Controlador implements ActionListener {
                     } else {
                         this.vistaInicial.txtvuelto.setText(String.valueOf(pago-valor));
                         JOptionPane.showMessageDialog(null, "El café se está preparando");
+                        LimpiarTodo();
                         
                     }
                 }
