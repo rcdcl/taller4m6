@@ -55,6 +55,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
         macercaintegrantes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +67,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optcortadoActionPerformed(evt);
             }
         });
-        getContentPane().add(optcortado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        getContentPane().add(optcortado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 175, -1, 30));
 
         bg_tipo_cafe.add(optespresso);
         optespresso.setContentAreaFilled(false);
@@ -76,7 +77,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optespressoActionPerformed(evt);
             }
         });
-        getContentPane().add(optespresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        getContentPane().add(optespresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, 30));
 
         bg_tipo_cafe.add(optamericano);
         optamericano.setContentAreaFilled(false);
@@ -86,7 +87,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optamericanoActionPerformed(evt);
             }
         });
-        getContentPane().add(optamericano, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+        getContentPane().add(optamericano, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 125, -1, 30));
 
         bg_tipo_cafe.add(optcapuccino);
         optcapuccino.setContentAreaFilled(false);
@@ -96,7 +97,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optcapuccinoActionPerformed(evt);
             }
         });
-        getContentPane().add(optcapuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+        getContentPane().add(optcapuccino, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, 30));
 
         bg_tamano.add(optgrande);
         optgrande.setContentAreaFilled(false);
@@ -105,7 +106,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optgrandeActionPerformed(evt);
             }
         });
-        getContentPane().add(optgrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        getContentPane().add(optgrande, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, 30));
 
         bg_tamano.add(optmediano);
         optmediano.setContentAreaFilled(false);
@@ -123,7 +124,7 @@ public class MaquinaCafe extends javax.swing.JFrame {
                 optchicoActionPerformed(evt);
             }
         });
-        getContentPane().add(optchico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        getContentPane().add(optchico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, 30));
 
         txtvalor.setBackground(new java.awt.Color(255, 255, 255));
         txtvalor.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,15 +136,18 @@ public class MaquinaCafe extends javax.swing.JFrame {
         txtvuelto.setEnabled(false);
         getContentPane().add(txtvuelto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 110, 30));
 
-        btnpagar.setBackground(new java.awt.Color(255, 255, 255));
+        btnpagar.setBackground(new java.awt.Color(102, 102, 102));
+        btnpagar.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        btnpagar.setForeground(new java.awt.Color(153, 0, 0));
         btnpagar.setText("PAGAR");
+        btnpagar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 2, true));
         btnpagar.setEnabled(false);
         btnpagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnpagarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 110, 70));
+        getContentPane().add(btnpagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 120, 110));
 
         cbotipoleche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Entera", "Descremada", "Soya", "Almendra" }));
         cbotipoleche.setEnabled(false);
@@ -177,6 +181,11 @@ public class MaquinaCafe extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/cliente.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jMenuBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 2, true));
+        jMenuBar1.setForeground(new java.awt.Color(102, 102, 102));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(129, 32));
 
         maropt.setText("Menu");
 
