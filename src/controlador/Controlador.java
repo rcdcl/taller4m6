@@ -283,12 +283,81 @@ public class Controlador implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Monto no es suficiente para pago, vuelva a intentar");
                         
                     } else {
+                        boolean descuento= false;
+                        int cantidadvendida = this.modeloDato.consultaCantidadVendida();
+                        System.out.println(cantidadvendida);
+                        cantidadvendida++;
+                        int residuo = cantidadvendida%7;
+                        double venta = Integer.parseInt(this.vistaInicial.txtvalor.getText());
+                        
+                        if (residuo == 0){ // Aquí pregunto si el residuo de la división por 7 es 0 para ver si aplico descuento
+                            
+                            venta=venta*0.7;
+                            System.out.println(venta);
+                            JOptionPane.showMessageDialog(null, "¡¡¡ Felicitaciones, tu café tiene descuento!!!");
+                            
+                            int a = (int) Math.round(venta); //fuerzo el dato de double a int y lo redondeo
+                            
+                            valor = a;
+                            this.vistaInicial.txtvalor.setText(String.valueOf(valor));
+                            descuento = true;
+                        } 
+
                         this.vistaInicial.txtvuelto.setText(String.valueOf(pago-valor));
+                        
                         JOptionPane.showMessageDialog(null, "El café se está preparando");
+                        
+                        int  id_vaso=0;
+                        if (this.vistaInicial.optchico.isSelected()==true){
+                            id_vaso = 1;
+                        }
+                        if (this.vistaInicial.optmediano.isSelected()==true){
+                            id_vaso = 2;
+                        }
+                        if (this.vistaInicial.optgrande.isSelected()==true){
+                            id_vaso = 3;
+                        }
+                        System.out.println("id_vaso = "+id_vaso);
+                        int id_cafe=0;
+                        if (this.vistaInicial.optespresso.isSelected()==true){
+                            id_cafe = 1;
+                        }
+                        if (this.vistaInicial.optamericano.isSelected()==true){
+                            id_cafe = 2;
+                        }
+                        if (this.vistaInicial.optcapuccino.isSelected()==true){
+                            id_cafe = 3;
+                        }
+                        if (this.vistaInicial.optcortado.isSelected()==true){
+                            id_cafe = 4;
+                        }
+                        System.out.println("id_cafe = "+id_cafe);
+                        
+                        int extra_endulzante=0;
+                        boolean extra_endulzante1 = this.vistaInicial.chkextradulce.isSelected();
+                        if (extra_endulzante1==true){
+                            extra_endulzante= 1;
+                        }
+                        int descuento1 =0;
+                        if (descuento==true){
+                            descuento1 = 1;
+                            
+                        }
+                        
+                        int id_leche= this.vistaInicial.cbotipoleche.getSelectedIndex();
+                        if (id_leche==0){
+                            id_leche=5;
+                        }
+                        System.out.println("extra_endulzante = "+extra_endulzante);
+                        
+                        this.modeloDato.insertarVenta(extra_endulzante, descuento1, id_cafe, 1, this.vistaInicial.cboendulzante.getSelectedIndex(), id_leche, id_vaso, valor);
+                        
+                        
                         LimpiarTodo();
                         
                     }
                 }
+                
                 
                 break;
 
