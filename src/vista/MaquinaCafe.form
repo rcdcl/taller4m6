@@ -268,7 +268,7 @@
           <Font name="Lucida Grande" size="18" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="66" green="ff" red="66" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="PAGAR"/>
         <Property name="enabled" type="boolean" value="false"/>
