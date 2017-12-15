@@ -74,6 +74,8 @@ public class Controlador implements ActionListener {
         bg_tipo_cafe, // grupo de botones tipo café
         bg_tamano, // grupo de botones tamaño vaso
         
+        //TextField
+        txtpago, //Textfield de pago
     }
 
     //Agregamos el constructor de la clase
@@ -152,6 +154,10 @@ public class Controlador implements ActionListener {
         // Escuchamos botón cancelar preparación vista MaquinaCafe
         this.vistaInicial.btncancelar.setActionCommand("btncancelar");
         this.vistaInicial.btncancelar.addActionListener(this);
+        //Escuchamos textfiels de pago vista MaquinaCafe
+        //this.vistaInicial.txtpago.setActionCommand("txtpago");
+        //this.vistaInicial.txtpago.addActionListener(this);
+        
 
     }
 
@@ -198,6 +204,29 @@ public class Controlador implements ActionListener {
 
 
     }
+    //Método para colocar precio a pagar
+    public void precio() {
+        if (this.vistaInicial.optchico.isSelected() == true) {
+            this.vistaInicial.txtvalor.setText("1000");
+         
+        }
+        if (this.vistaInicial.optmediano.isSelected() == true) {
+            this.vistaInicial.txtvalor.setText("1500");
+        }
+        if (this.vistaInicial.optgrande.isSelected() == true) {
+            this.vistaInicial.txtvalor.setText("2000");
+        }
+
+    }
+    //Método para validar si un dato ingresado es número
+    static boolean esNumero(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+}
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -205,7 +234,30 @@ public class Controlador implements ActionListener {
             
             // case botones
             case btnpagar:
-                //llamamos al metodo que esta en el modelo para agragar el dato y le enviamos lo que captura del textField
+
+                
+                
+                
+                if (esNumero(this.vistaInicial.txtpago.getText()) == false) {
+                    JOptionPane.showMessageDialog(null, "Ingrese datos numéricos en este campo, vuelva a intentar");
+                    
+                    
+                } else {
+
+                    int pago, valor;
+                    pago = Integer.parseInt(this.vistaInicial.txtpago.getText());
+                    valor = Integer.parseInt(this.vistaInicial.txtvalor.getText());
+
+                    System.out.println(pago-valor);
+                    if (pago < valor) {
+                        JOptionPane.showMessageDialog(null, "Monto no es suficiente para pago, vuelva a intentar");
+                        
+                    } else {
+                        this.vistaInicial.txtvuelto.setText(String.valueOf(pago-valor));
+                        JOptionPane.showMessageDialog(null, "El café se está preparando");
+                        
+                    }
+                }
                 
                 break;
 
@@ -250,8 +302,6 @@ public class Controlador implements ActionListener {
 
             case optchico:
 
-                this.vistaInicial.optcapuccino.setEnabled(true);
-                this.vistaInicial.optcortado.setEnabled(true);
                 this.vistaInicial.optespresso.setEnabled(true);
 
                 break;
@@ -282,6 +332,8 @@ public class Controlador implements ActionListener {
                         this.vistaInicial.chkextradulce.setEnabled(true);
                         if ((this.vistaInicial.optamericano.isSelected()== true) || (this.vistaInicial.optespresso.isSelected()== true)){
                             this.vistaInicial.txtpago.setEnabled(true);
+                            precio();
+                            this.vistaInicial.btnpagar.setEnabled(true);
                         } else {
                         this.vistaInicial.cbotipoleche.setEnabled(true);
                     }
@@ -289,6 +341,8 @@ public class Controlador implements ActionListener {
                 } else {
                         if ((this.vistaInicial.optamericano.isSelected()== true) || (this.vistaInicial.optespresso.isSelected()== true)){
                             this.vistaInicial.txtpago.setEnabled(true);
+                            precio();
+                            this.vistaInicial.btnpagar.setEnabled(true);
                         } else {
                             
                             this.vistaInicial.cbotipoleche.setEnabled(true);
@@ -302,10 +356,10 @@ public class Controlador implements ActionListener {
                 if (this.vistaInicial.cbotipoleche.getSelectedItem() != "Seleccione"){
                     
                         this.vistaInicial.txtpago.setEnabled(true);
+                        precio();
+                        this.vistaInicial.btnpagar.setEnabled(true);
                     }
-                    
-                
-                
+
                 break;    
                 
 
@@ -330,10 +384,20 @@ public class Controlador implements ActionListener {
             case macercaintegrantes:
 
                 this.vistaAcerca.setLocationRelativeTo(null);
-                this.vistaAcerca.setTitle("Acerca de ...");
+                this.vistaAcerca.setTitle("Acerca de");
                 this.vistaAcerca.setVisible(true);
                 break;
-
+                
+                //case txtpago
+             
+            /*    
+            case txtpago:
+                
+                
+                
+                
+                break;
+                */
         }
 
     }

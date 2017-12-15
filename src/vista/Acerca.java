@@ -52,7 +52,7 @@ public class Acerca extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Taller Nº 4  - Maquina de Café\n\nIntegrantes: \n\nMarcela Castro\nMarietta González\nRafael Casanova \nErick Alarcón\n\nRecetas Tipos de Café:\n\nEspresso:\n\n\nAmericano:\n\n\nCapuccino:\n\n\nCortado:\n");
+        jTextArea1.setText("Taller Nº 4  - Maquina de Café\nViernes 15 de diciembre de 2017\nIntegrantes: \n\nErick Alarcón\nRafael Casanova \nMarcela Castro\nMarietta González\n\nRecetas Tipos de Café:\n\nEspresso:\n\n1 vaso chico + 1 unidad de café\n\nAmericano:\n\n1 vaso mediano + 1 unidad de café\n1 vaso grande + 2 unidades de café\n\nCapuccino:\n\n1 vaso mediano + 1 unidad de café + 1 unidad de leche\n1 vaso grande + 2 unidades de café + 2 unidades de leche\n\nCortado:\n\n1 vaso mediano + 1 unidad de café + 2 unidades de leche\n1 vaso grande + 2 unidades de café + 3 unidades de leche\n");
         jTextArea1.setDragEnabled(false);
         jTextArea1.setEnabled(false);
         jScrollPane2.setViewportView(jTextArea1);
