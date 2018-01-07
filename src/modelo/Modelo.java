@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,9 @@ public class Modelo extends Conexion {
     }
      */
     public DefaultTableModel reporteStock() {
+        
+        
+        
 
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
@@ -27,6 +31,117 @@ public class Modelo extends Conexion {
                 = {"Cafe", "A.Blanca", "A.Rubia", "Stevia", "L.Entera", "L.Descremada", "L.Soya", "L.Almendra",
                     "V.Chico", "V.Mediano", "V.Grande"};
 
+        
+        try{
+            CallableStatement miSentencia= this.getConexion().prepareCall("{call actualizar_stock}");
+            ResultSet rs = miSentencia.executeQuery();
+            
+            
+            
+            
+        }catch (Exception e){}
+        
+        Object[][] data = new String[2][11];
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cafe, end1, end2, end3, leche1, leche2, leche3, leche4, vaso1, vaso2, vaso3 FROM stock WHERE id=1");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+
+                data[i][0] = res.getString("cafe");
+                data[i][1] = res.getString("end1");
+                data[i][2] = res.getString("end2");
+                data[i][3] = res.getString("end3");
+                data[i][4] = res.getString("leche1");
+                data[i][5] = res.getString("leche2");
+                data[i][6] = res.getString("leche3");
+                data[i][7] = res.getString("leche4");
+                data[i][8] = res.getString("vaso1");
+                data[i][9] = res.getString("vaso2");
+                data[i][10] = res.getString("vaso3");
+                
+                int cafe= Integer.parseInt(String.valueOf(data[0][0]));
+                int end1= Integer.parseInt(String.valueOf(data[0][1]));
+                int end2= Integer.parseInt(String.valueOf(data[0][2]));
+                int end3= Integer.parseInt(String.valueOf(data[0][3]));
+                int leche1= Integer.parseInt(String.valueOf(data[0][4]));
+                int leche2= Integer.parseInt(String.valueOf(data[0][5]));
+                int leche3= Integer.parseInt(String.valueOf(data[0][6]));
+                int leche4= Integer.parseInt(String.valueOf(data[0][7]));
+                int vaso1= Integer.parseInt(String.valueOf(data[0][8]));
+                int vaso2= Integer.parseInt(String.valueOf(data[0][9]));
+                int vaso3= Integer.parseInt(String.valueOf(data[0][10]));
+                
+                if ((cafe<=5)||(end1<=5)||(end2<=5)||(end3<=5)||(leche1<=5)||(leche2<=5)||(leche3<=5)||(leche4<=5)||(vaso1<=5)||(vaso2<=5)||(vaso3<=5)){
+                JOptionPane.showMessageDialog(null, "¡¡¡ALERTA!!! Stock de insumos crítico.\nRevise detalle en Menu=>Admin=>Reporte de Stock");
+            }
+                if (cafe <= 5) {
+                    data[1][0] = "S. BAJO";
+                } else {
+                    data[1][0] = "S. OK";
+                }
+                if (end1 <= 5) {
+                    data[1][1] = "S. BAJO";
+                } else {
+                    data[1][1] = "S. OK";
+                }
+                if (end2 <= 5) {
+                    data[1][2] = "S. BAJO";
+                } else {
+                    data[1][2] = "S. OK";
+                }
+                if (end3 <= 5) {
+                    data[1][3] = "S. BAJO";
+                } else {
+                    data[1][3] = "S. OK";
+                }
+                if (leche1 <= 5) {
+                    data[1][4] = "S. BAJO";
+                } else {
+                    data[1][4] = "S. OK";
+                }
+                if (leche2 <= 5) {
+                    data[1][5] = "S. BAJO";
+                } else {
+                    data[1][5] = "S. OK";
+                }
+                if (leche3 <= 5) {
+                    data[1][6] = "S. BAJO";
+                } else {
+                    data[1][6] = "S. OK";
+                }
+                if (leche4 <= 5) {
+                    data[1][7] = "S. BAJO";
+                } else {
+                    data[1][7] = "S. OK";
+                }
+                if (vaso1 <= 5) {
+                    data[1][8] = "S. BAJO";
+                } else {
+                    data[1][8] = "S. OK";
+                }
+                if (vaso2 <= 5) {
+                    data[1][9] = "S. BAJO";
+                } else {
+                    data[1][9] = "S. OK";
+                }
+                if (vaso3 <= 5) {
+                    data[1][10] = "S. BAJO";
+                } else {
+                    data[1][10] = "S. OK";
+                }
+                
+            }
+            res.close();
+            tablemodel.setDataVector(data, columNames);
+            getConexion().close();
+        } catch (SQLException e) {
+            
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+        
+        /*
         try {
             PreparedStatement pstm1 = this.getConexion().prepareStatement("SELECT count(*) as total from cafe");
             ResultSet res1 = pstm1.executeQuery();
@@ -297,6 +412,7 @@ public class Modelo extends Conexion {
             System.err.println(e.getMessage());
         }
         return tablemodel;
+        */
     }
 
     public DefaultTableModel reporteVentas() {
@@ -342,6 +458,20 @@ public class Modelo extends Conexion {
     }
 
     public boolean cargarStock() {
+        
+        try{
+            CallableStatement miSentencia= this.getConexion().prepareCall("{call CARGAR_STOCK}");
+            ResultSet rs = miSentencia.executeQuery();
+         
+            JOptionPane.showMessageDialog(null, "Carga de stock de insumos realizada con éxito.\nVuelva a revisar 'Reporte de Stock'");
+
+            return true;
+            
+        }
+        
+        
+        
+        /*
         try {
             PreparedStatement pstm1 = this.getConexion().prepareStatement(
                     "UPDATE cafe SET stock_c = 50 WHERE id_coffe =1;"); // Stock Cafe  UPDATE facturas SET base_imponible = '300' WHERE num_factura = '30';
@@ -395,7 +525,9 @@ public class Modelo extends Conexion {
             JOptionPane.showMessageDialog(null, "Carga de stock de insumos realizada con éxito.\nVuelva a revisar 'Reporte de Stock'");
 
             return true;
-        } catch (SQLException e) {
+        } */
+        
+        catch (SQLException e) {
             System.err.println(e.getMessage());
             return false;
         }
